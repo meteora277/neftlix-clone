@@ -1,5 +1,6 @@
 import React from "react";
-import { Inner, Title, Subtitle, Container } from "./styles/jumbotron";
+
+import { Inner, Title, Subtitle, Container, Image, Pane } from "./styles/jumbotron";
 
 export default function Jumbotron({ direction, data }) {
   
@@ -11,18 +12,24 @@ export default function Jumbotron({ direction, data }) {
       </Jumbotron.Div>
 
       <Jumbotron.Div>
-        <img src={data.image} alt={data.alt} />
+        <Jumbotron.Image direction={direction} src={data.image} alt={data.alt} />
       </Jumbotron.Div>
     </Inner>
   );
 }
+
+Jumbotron.Image = function JumboImage({...restProps}){
+  return <Image {...restProps} />
+
+}
+
 
 Jumbotron.Container = function JumboContainer({ children }) {
   return <Container>{children}</Container>;
 };
 
 Jumbotron.Div = function JumboDiv({ children }) {
-  return <Container>{children}</Container>;
+  return <Pane>{children}</Pane>;
 };
 
 Jumbotron.Title = function JumboTitle({ children }) {
