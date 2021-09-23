@@ -15,7 +15,6 @@ export const Inner = styled.div`
 
   }
   @media(max-width: 500px){
-
     padding 3.5rem 2rem;
 
   }
@@ -46,8 +45,6 @@ export const Subtitle = styled.p`
   }
   @media (max-width: 500px) {
     font-size: 1.1rem;
-    
-
   }
 `;
 export const Pane = styled.div`
@@ -64,7 +61,7 @@ export const Image = styled.img`
   max-width: 450px;
   max-height: 350px;
   ${({ direction }) =>
-    direction &&
+    (direction === "row-reverse") &&
     "margin-right: 5rem; @media(max-width: 800px){margin: 0 auto; transform: scale(0.8)}"}
 
   @media(max-width: 800px) {
