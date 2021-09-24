@@ -117,6 +117,7 @@ export const SignUpContainer = styled.div`
   height: 3.625rem;
   max-width: 1100px;
   margin: 0 auto;
+  
 `;
 export const Button = styled.button`
   height: 100%;
@@ -158,3 +159,12 @@ export const SignUp = styled.input.attrs({
     margin-bottom: 1rem;
   }
 `;
+
+export const Flexbox = styled.div`
+  color:white;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align:center;
+
+`

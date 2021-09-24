@@ -20,7 +20,11 @@ export default function App() {
           </Jumbotron.Container>
         );
       })}
-      <Faq faq={ faqData }/>
+      <Faq faq={faqData} />
+      <Header.Flexbox>
+        <Header.Subtitle>Ready to watch? Enter your email to create or restart your membership.</Header.Subtitle>
+        <Header.SignUp/>
+      </Header.Flexbox>
     </div>
   );
 }

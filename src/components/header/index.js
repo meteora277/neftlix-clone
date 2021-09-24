@@ -9,7 +9,8 @@ import {
   SignUpContainer,
   SignUp,
   Image,
-  Button
+  Button,
+  Flexbox
 } from "./styles/header";
 
 const Logo = window.location.origin + "/images/logo.svg";
@@ -64,7 +65,7 @@ Header.Subtitle = ({ children, ...restProps }) => (
   <Subtitle {...restProps}>{children}</Subtitle>
 );
 
-Header.SignUp = ({ children, ...restProps }) => {
+Header.SignUp = ({ children, ...restProps}) => {
   const arrow = window.location.origin + "/images/icons/chevron-right.png";
 
   return (
@@ -77,3 +78,5 @@ Header.SignUp = ({ children, ...restProps }) => {
     </SignUpContainer>
   );
 };
+
+Header.Flexbox = ({children}) =>(<Flexbox>{children}</Flexbox>) 
