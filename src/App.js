@@ -1,15 +1,18 @@
 import React from "react";
 import { GlobalStyle } from "./components/globalStyles";
+
 import Jumbotron from "./components/jumbotron";
 import jumboData from "./fixtures/jumbo.json";
-import Header from "./components/header"
+import Faq from "./components/FAQ";
+import faqData from "./fixtures/faqs.json";
+import Header from "./components/header";
 
-console.log(jumboData);
+console.log(faqData);
 export default function App() {
   return (
     <div>
       <GlobalStyle />
-      <Header/>
+      <Header />
       {jumboData.map((item) => {
         return (
           <Jumbotron.Container key={item.id}>
@@ -17,6 +20,7 @@ export default function App() {
           </Jumbotron.Container>
         );
       })}
+      <Faq faq={ faqData }/>
     </div>
   );
 }

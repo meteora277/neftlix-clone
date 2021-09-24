@@ -1,5 +1,16 @@
 import React from "react";
-import { Background, Container, Pane, Nav, Title, Subtitle, SignUpContainer, SignUp , Image, Button } from "./styles/header";
+import {
+  Background,
+  Container,
+  Pane,
+  Nav,
+  Title,
+  Subtitle,
+  SignUpContainer,
+  SignUp,
+  Image,
+  Button
+} from "./styles/header";
 
 const Logo = window.location.origin + "/images/logo.svg";
 
@@ -49,16 +60,20 @@ Header.Pane = ({ children }) => <Pane>{children}</Pane>;
 
 Header.Title = ({ children }) => <Title>{children}</Title>;
 
-Header.Subtitle = ({ children, ...restProps }) => <Subtitle {...restProps}>{children}</Subtitle>;
+Header.Subtitle = ({ children, ...restProps }) => (
+  <Subtitle {...restProps}>{children}</Subtitle>
+);
 
 Header.SignUp = ({ children, ...restProps }) => {
-
-  const arrow = window.location.origin + "/images/icons/chevron-right.png"
+  const arrow = window.location.origin + "/images/icons/chevron-right.png";
 
   return (
-    <SignUpContainer {...restProps }>
-      <SignUp type="text"/><Button>Get Started<Image src={arrow} alt="Arrow"></Image></Button>
-    {children}
+    <SignUpContainer {...restProps}>
+      <SignUp type="text" />
+      <Button>
+        Get Started<Image src={arrow} alt="Arrow"></Image>
+      </Button>
+      {children}
     </SignUpContainer>
-  )
-}
+  );
+};
