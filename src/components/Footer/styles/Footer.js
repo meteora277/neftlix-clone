@@ -1,6 +1,7 @@
 import styled from "styled-components/macro";
+import { Link as RouterLink} from "react-router-dom"
 
-export const Link = styled.div`
+export const Link = styled(RouterLink)`
   color: #757575;
   font-size: 0.81rem;
   &:hover {
@@ -28,4 +29,6 @@ export const Container = styled.div`
   padding: 3rem;
   min-width: 320px;
   border-top: 0.7rem solid #222222;
+
+  ${({NoMargin}) => NoMargin && "border-top:none;"}
 `;

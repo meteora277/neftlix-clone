@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components/macro";
+import { Link as RouterLink } from "react-router-dom";
 
 const image = window.location.origin + "/images/misc/home-bg.jpg";
 
@@ -6,10 +7,13 @@ export const Background = styled.div`
   position: absolute;
   top: 0;
   background: url(${image}) no-repeat center;
-  width: 100%;
+  width: 100vw;
   background-size: cover;
-  height: 100%;
+  height: 100vh;
   z-index: -10;
+
+  ${({sticky}) => sticky && "background-size: cover; min-width:1000px; min-height: 100%"}
+  
 `;
 export const Container = styled.div`
   ${({ background }) =>
@@ -18,12 +22,13 @@ export const Container = styled.div`
           position: relative;
           height: 710px;
 
-          @media(max-width: 500px){
-            height:540px;
+          @media (max-width: 500px) {
+            height: 540px;
           }
         `
       : "height: 100%;"}
 `;
+
 
 export const Pane = styled.div`
   height: 80%;
@@ -33,10 +38,9 @@ export const Pane = styled.div`
   justify-content: center;
   text-align: center;
 
-  @media(max-width: 500px){
-    padding:1rem;
+  @media (max-width: 500px) {
+    padding: 1rem;
   }
-  
 `;
 
 export const Nav = styled.div`
@@ -71,24 +75,27 @@ export const Nav = styled.div`
       height: 90%;
     }
   }
-  button {
-    align-self: start;
-    height: 90%;
-    background: #e50914;
-    color: white;
-    border: none;
-    border-radius: 0.2rem;
-    padding: 0 1.2rem;
-    margin-left: 2rem;
-    font-weight: 400;
-    font-size: 16px;
+`;
+export const Link = styled(RouterLink)`
+  
+align-self: start;
+height: 100%;
+background: #e50914;
+color: white;
+border: none;
+border-radius: 0.2rem;
+padding: 0.64rem 1.2rem;
+margin-left: 2rem;
+font-weight: 400;
+font-size: 16px;
+text-decoration: none;
 
-    @media (max-width: 500px) {
-      height: 90%;
-      margin-left: 0.8rem;
-      padding: 0.2rem 0.5rem;
-    }
-  }
+@media (max-width: 500px) {
+  height: 90%;
+  margin-left: 0.8rem;
+  padding: 0.4rem 0.5rem;
+
+
 `;
 
 export const Title = styled.p`
@@ -117,7 +124,9 @@ export const SignUpContainer = styled.div`
   height: 3.625rem;
   max-width: 1100px;
   margin: 0 auto;
-  
+  @media (max-width: 920px) {
+    height: 2.5rem;
+  }
 `;
 export const Button = styled.button`
   height: 100%;
@@ -126,10 +135,21 @@ export const Button = styled.button`
   color: white;
   font-size: 1.625rem;
   padding: 0 1.5rem;
+  
+  @media(max-width: 920px){
+
+    font-size: 1rem;
+    padding: 0 0.8rem;
+
+  }
+
+}
 
   &:hover {
     background: rgb(244, 6, 18);
   }
+
+
 `;
 export const Image = styled.img`
   height: 1rem;
@@ -154,17 +174,18 @@ export const SignUp = styled.input.attrs({
     outline: none;
   }
 
-  @media(max-width: 710px){
-    width:90%;
+  @media (max-width: 710px) {
+    width: 90%;
     margin-bottom: 1rem;
   }
 `;
 
 export const Flexbox = styled.div`
-  color:white;
-  display:flex;
+  color: white;
+  display: flex;
   justify-content: center;
   flex-direction: column;
-  text-align:center;
+  text-align: center;
 
-`
+  ${({ css }) => css}
+`;

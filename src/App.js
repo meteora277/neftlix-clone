@@ -1,30 +1,26 @@
 import React from "react";
 import { GlobalStyle } from "./components/globalStyles";
+import { Switch, Route } from "react-router-dom";
+import SignUp from "./Pages/SignIn";
 
-import Jumbotron from "./components/jumbotron";
-import jumboData from "./fixtures/jumbo.json";
-import Faq from "./components/FAQ";
-import faqData from "./fixtures/faqs.json";
-import Header from "./components/header";
 
-console.log(faqData);
+import Index from "./Pages/Index";
+import TempPage from "./Pages/TempPage";
+
 export default function App() {
   return (
     <div>
       <GlobalStyle />
-      <Header />
-      {jumboData.map((item) => {
-        return (
-          <Jumbotron.Container key={item.id}>
-            <Jumbotron direction={item.direction} data={item} />
-          </Jumbotron.Container>
-        );
-      })}
-      <Faq faq={faqData} />
-      <Header.Flexbox>
-        <Header.Subtitle>Ready to watch? Enter your email to create or restart your membership.</Header.Subtitle>
-        <Header.SignUp/>
-      </Header.Flexbox>
+      <Switch>
+        <Route exact path="/">
+          <Index />
+        </Route>
+        <Route path="/login">
+          <SignUp/>
+        </Route>
+        <Route path="/:other"><TempPage/></Route>
+      </Switch>
+
     </div>
   );
 }

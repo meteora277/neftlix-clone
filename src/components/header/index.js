@@ -1,4 +1,5 @@
 import React from "react";
+import { Link as RouterLink } from "react-router-dom"
 import {
   Background,
   Container,
@@ -10,8 +11,10 @@ import {
   SignUp,
   Image,
   Button,
-  Flexbox
+  Flexbox, 
+  Link
 } from "./styles/header";
+
 
 const Logo = window.location.origin + "/images/logo.svg";
 
@@ -35,7 +38,7 @@ export default function Header() {
   );
 }
 
-Header.Background = ({ children }) => <Background>{children}</Background>;
+Header.Background = ({ children , ...restProps}) => <Background {...restProps}>{children}</Background>;
 
 Header.Container = ({ children, ...restProps }) => (
   <Container {...restProps}>{children}</Container>
@@ -44,15 +47,28 @@ Header.Container = ({ children, ...restProps }) => (
 Header.Nav = ({ children, ...restProps }) => {
   return (
     <Nav>
+      <RouterLink to="/">
       <img {...restProps} src={Logo} alt="Netflix Logo" />
+      </RouterLink>
       {children}
       <Container>
         <select>
           <option>English</option>
           <option>French</option>
         </select>
-        <button>Sign In</button>
+        <Link to="/login">Sign In</Link>
       </Container>
+    </Nav>
+  );
+};
+
+Header.NavClean = ({ children, ...restProps }) => {
+  return (
+    <Nav>
+      <RouterLink to="/">
+      <img {...restProps} src={Logo} alt="Netflix Logo" />
+      </RouterLink>
+      {children}
     </Nav>
   );
 };
@@ -65,13 +81,13 @@ Header.Subtitle = ({ children, ...restProps }) => (
   <Subtitle {...restProps}>{children}</Subtitle>
 );
 
-Header.SignUp = ({ children, ...restProps}) => {
+Header.SignUp = ({ children, ...restProps }) => {
   const arrow = window.location.origin + "/images/icons/chevron-right.png";
 
   return (
     <SignUpContainer {...restProps}>
       <SignUp type="text" />
-      <Button>
+      <Button {...restProps}>
         Get Started<Image src={arrow} alt="Arrow"></Image>
       </Button>
       {children}
@@ -79,4 +95,6 @@ Header.SignUp = ({ children, ...restProps}) => {
   );
 };
 
-Header.Flexbox = ({children}) =>(<Flexbox>{children}</Flexbox>) 
+Header.Flexbox = ({ children, ...restProps }) => (
+  <Flexbox {...restProps}>{children}</Flexbox>
+);
