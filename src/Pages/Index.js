@@ -27,7 +27,7 @@ export default function Index(){
         <Header.Subtitle>
           Ready to watch? Enter your email to create or restart your membership.
         </Header.Subtitle>
-        <Header.SignUp small />
+        <Header.SignUp small uwu/>
       </Header.Flexbox>
 
       <Footer />
